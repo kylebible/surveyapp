@@ -1,0 +1,76 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="javascript:void(0);">Home</a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button type="button" class="btn btn-primary margin" [routerLink]="['/dashboard']">Cancel</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-danger" (click)="logout()">Log Out</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <form #form="ngForm" (submit)="submitSurvey()" onsubmit="return false">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Question</label>
+      <div class="col-8">
+        <input name="question" class="form-control" type="text" value="" [(ngModel)]="survey.question" required minlength="8" #question="ngModel">
+        <div class="red" *ngIf='question.errors && (question.touched || form.submitted)'>
+          <p *ngIf='question.errors.required'>Field is required</p>
+          <p *ngIf='question.errors.minlength'>Question must contain at least 8 characters.</p>
+        </div>
+      </div>
+    </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Option 1</label>
+    <div class="col-4">
+      <input name="option1" type="text" class="form-control" value="" [(ngModel)]="survey.option1" required minlength="3" #option1="ngModel">
+      <div class="red" *ngIf='option1.errors && (option1.touched || form.submitted)'>
+          <p *ngIf='option1.errors.required'>Field is required</p>
+          <p *ngIf='option1.errors.minlength'>Survey Option must contain at least 3 characters.</p>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Option 2</label>
+    <div class="col-4">
+      <input name="option2" type="text" class="form-control" value="" [(ngModel)]="survey.option2" required minlength="3" #option2="ngModel">
+      <div class="red" *ngIf='option2.errors && (option2.touched || form.submitted)'>
+          <p *ngIf='option2.errors.required'>Field is required</p>
+          <p *ngIf='option2.errors.minlength'>Survey Option must contain at least 3 characters.</p>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Option 3</label>
+    <div class="col-4">
+      <input name="option3" type="text" class="form-control" value="" [(ngModel)]="survey.option3" required minlength="3" #option3="ngModel">
+      <div class="red" *ngIf='option3.errors && (option3.touched || form.submitted)'>
+          <p *ngIf='option3.errors.required'>Field is required</p>
+          <p *ngIf='option3.errors.minlength'>Survey Option must contain at least 3 characters.</p>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Option 4</label>
+    <div class="col-4">
+      <input name="option4" type="text" class="form-control" value="" [(ngModel)]="survey.option4" required minlength="3" #option4="ngModel">
+      <div class="red" *ngIf='option4.errors && (option4.touched || form.submitted)'>
+          <p *ngIf='option4.errors.required'>Field is required</p>
+          <p *ngIf='option4.errors.minlength'>Survey Option must contain at least 3 characters.</p>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row offset-10">
+    <div class="col-10">
+      <button [disabled]="!form.valid" type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+  </form>
+</div>

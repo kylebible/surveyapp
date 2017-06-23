@@ -1,0 +1,11 @@
+<div class="container padding">
+  <h3 class="text-center">Please Enter your Name to enter the site!</h3>
+  <form #regForm="ngForm" class="text-center" onsubmit="return false" (submit)="login()">
+    <input type="text" name="username" value="" [(ngModel)]="name" required minlength="2" #username="ngModel">
+    <div class="red" *ngIf='username.errors && (username.touched || regForm.submitted)'>
+      <p *ngIf='username.errors.required'>Field is required</p>
+      <p *ngIf='username.errors.minlength'>First name must contain at least 2 characters.</p>
+    </div>
+    <button [disabled]="!regForm.valid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

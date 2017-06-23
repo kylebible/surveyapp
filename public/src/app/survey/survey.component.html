@@ -1,0 +1,52 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="javascript:void(0);" [routerLink]="['/dashboard']">Home</a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <button type="button" class="btn btn-danger" (click)="logout()">Log Out</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div *ngIf="survey" class="container">
+  <h1>{{survey.question}}</h1>
+  <p class="lead">Click the vote button to choose one</p>
+  <div class="container">
+  <h2 class="offset-1">Current Poll:</h2>
+  <div class="table-responsive overflow border col-8">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Current Vote Count</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{survey.option1}}</td>
+          <td>{{survey.option1_votes}}</td>
+          <td><button type="button" class="btn btn-sm btn-info col-6" (click)="vote(1)">Vote</button>
+        </tr>
+        <tr>
+          <td scope="row">{{survey.option2}}</td>
+          <td>{{survey.option2_votes}}</td>
+          <td><button type="button" class="btn btn-sm btn-info col-6" (click)="vote(2)">Vote</button>
+        </tr><tr>
+          <td scope="row">{{survey.option3}}</td>
+          <td>{{survey.option3_votes}}</td>
+          <td><button type="button" class="btn btn-sm btn-info col-6" (click)="vote(3)">Vote</button>
+        </tr><tr>
+          <td scope="row">{{survey.option4}}</td>
+          <td>{{survey.option4_votes}}</td>
+          <td><button type="button" class="btn btn-sm btn-info col-6" (click)="vote(4)">Vote</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
